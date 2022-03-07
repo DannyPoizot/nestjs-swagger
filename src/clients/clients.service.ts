@@ -1,7 +1,7 @@
+import { PrismaService } from './../prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
-import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class ClientsService {
@@ -12,7 +12,7 @@ export class ClientsService {
   }
 
   findAll() {
-    return `his action returns all clients`;
+    return this.prismaService.client.findMany();
   }
 
   findOne(id: number) {
